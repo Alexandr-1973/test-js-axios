@@ -9,6 +9,8 @@ import svgError from '/img/bi_x-octagon.svg';
 
 import renderFunctions from './js/render-functions';
 
+import axios from 'axios';
+
 let searchText;
 let pageNumber;
 let maxPage;
@@ -86,3 +88,22 @@ async function onLoadButton() {
       document.querySelector('.gallery-item').getBoundingClientRect().height,
   });
 }
+
+const res = await axios.get(
+  'https://books-backend.p.goit.global/books/643282b1e85766588626a085'
+);
+console.log(res.data);
+// '643282b1e85766588626a085';
+
+const shopObject = {
+  book_image:
+    'https://storage.googleapis.com/du-prd/books/images/9780385547345.jpg',
+  title: 'LESSONS IN CHEMISTRY',
+  list_name: 'Audio Fiction',
+  description:
+    'A scientist and single mother living in California in the 1960s becomes a star on a TV cooking show.',
+  author: 'Bonnie Garmus',
+  amazonUrl: 'https://www.amazon.com/dp/038554734X?tag=NYTBSREV-20',
+  appleBooksUrl: 'https://goto.applebooks.apple/9780593507537?at=10lIEQ',
+  id: '643282b1e85766588626a085',
+};
