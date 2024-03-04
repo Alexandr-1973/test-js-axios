@@ -89,11 +89,51 @@ async function onLoadButton() {
   });
 }
 
+let idArray = [];
+let firstArray = [];
 const res = await axios.get(
-  'https://books-backend.p.goit.global/books/643282b1e85766588626a085'
+  'https://books-backend.p.goit.global/books/top-books'
 );
-console.log(res.data);
+firstArray = res.data;
+// console.log(firstArray);
+
+for (let y = 0; y <= 5; y += 1) {
+  for (let i = 0; i <= 4; i += 1) {
+    idArray.push(firstArray[y].books[i]._id);
+  }
+}
+// console.log(idArray);
+
+let inLocalStorage = [];
+
+let f;
+async function setLS() {
+  for (let i = 0; i < idArray.length; i += 1) {
+    // console.log(idArray[i]);
+    const result = await axios.get(
+      `https://books-backend.p.goit.global/books/${idArray[i]}`
+    );
+    inLocalStorage.push(result.data);
+  }
+  localStorage.setItem("addBook", JSON.stringify(inLocalStorage));
+}
+
+setLS();
+// console.log(booksArray);
+
 // '643282b1e85766588626a085';
+// const t = '643282b1e85766588626a0ba';
+// const result = await axios.get(
+//   `https://books-backend.p.goit.global/books/${t}`
+// );
+// console.log(result.data);
+// console.log(inStorage);
+// console.log(JSON.stringify(inStorage));
+
+// const LOCAL_STORAGE_KEY = 'addBook';
+// localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(inStorage[0]));
+
+// 643282b1e85766588626a0ba
 
 // const shopObject = {
 //  const book_image:
