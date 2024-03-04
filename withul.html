@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework12</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/homework.css" />
+  </head>
+  <body>
+
+    <div class="container shopping-list-container">
+      <section class="shopping-list">
+        <h1 class="shopping-list-title">
+          Shopping <span class="shopping-list-title-span">List</span>
+        </h1>
+
+        <ul class="books">
+            <li class="shoppinglist-book" id="${book._id}">
+          <img
+            class="shoppinglist-book-image"
+            src="${book.book_image}"
+            alt="book image"
+          />
+          <div class="shoppinglist-total-div">
+            <div class="shoppinglist-tb-div">
+              <div class="shoppinglist-titcat-div">
+                <h3 class="shoppinglist-book-title">${book.title}</h3>
+                <p class="shoppinglist-book-category">${book.list_name}</p>
+              </div>
+
+              <button
+                type="button"
+                class="shoppinglist-book-deletebutton"
+              ></button>
+            </div>
+
+            <div class="shoppinglist-desauthorlink">
+              <p class="shoppinglist-book-description">${book.description}</p>
+
+              <div class="shoppinglist-low-div">
+                <p class="shoppinglist-book-author">${book.author}</p>
+                <ul class="shoppinglist-book-low-ul">
+                  <li class="shoppinglist-book-low-li-amazon">
+                    <a
+                      class="shopping-amazon-link"
+                      href="${book.amazon_product_url}"
+                      target="_blank"
+                    >
+                      <img
+                        class="shopping-listamazon-img"
+                        src="./img/amazon.png"
+                        alt="logoAmazon"
+                      />
+                    </a>
+                  </li>
+                  <li class="shoppinglist-book-low-li-apple">
+                    <a
+                      class="shopping-apple-link"
+                      href="${book.buy_links[1].url}"
+                      target="_blank"
+                    >
+                      <img
+                        class="shopping-apple-img"
+                        src="./img/apple.png"
+                        alt="logo Apple books"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+<!-- плюс лишки -->
+
+        </ul>
+
+      </section>
+    </div>
+    
+  </body>
+</html>
